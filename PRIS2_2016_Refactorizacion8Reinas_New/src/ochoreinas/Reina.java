@@ -9,12 +9,12 @@ import java.awt.*;
 
 public class Reina {
 	// datos
-	private int fila;
-	private int columna;
-	private Reina vecina;
+	protected int fila;
+	protected int columna;
+	protected ReinaDibujable vecina;
 
 	// constructor
-	Reina(int c, Reina n) {
+	Reina(int c, ReinaDibujable n) {
 		fila = 1;
 		columna = c;
 		vecina = n;
@@ -44,7 +44,7 @@ public class Reina {
 
 	}
 
-	private boolean puedeAtacar(int testfila, int testcolumna) {
+	protected boolean puedeAtacar(int testfila, int testcolumna) {
 		int columnaDiferencia = testcolumna - columna;
 		if ((fila == testfila) || (fila + columnaDiferencia == testfila)
 				|| (fila - columnaDiferencia == testfila))
@@ -54,28 +54,5 @@ public class Reina {
 		return false;
 	}
 
-	public void paint(Graphics g) {
-		// primero dibuja la vecina vecina
-		if (vecina != null)
-			vecina.paint(g);
-		// despues a ella misna
-		// x, y is upper left corner
-		dibujarCorona(g);
-	}
 	
-	public void dibujarCorona(Graphics g){
-		
-		int x = (fila - 1) * 50 + 10;
-		int y = (columna - 1) * 50 + 40;
-		
-		g.drawLine(x + 5, y + 45, x + 45, y + 45);
-		g.drawLine(x + 5, y + 45, x + 5, y + 5);
-		g.drawLine(x + 45, y + 45, x + 45, y + 5);
-		g.drawLine(x + 5, y + 35, x + 45, y + 35);
-		g.drawLine(x + 5, y + 5, x + 15, y + 20);
-		g.drawLine(x + 15, y + 20, x + 25, y + 5);
-		g.drawLine(x + 25, y + 5, x + 35, y + 20);
-		g.drawLine(x + 35, y + 20, x + 45, y + 5);
-		g.drawOval(x + 20, y + 20, 10, 10);
-	}
 }

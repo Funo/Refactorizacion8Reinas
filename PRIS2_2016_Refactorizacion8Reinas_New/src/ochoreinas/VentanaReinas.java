@@ -11,13 +11,13 @@ import java.awt.event.*;
 @SuppressWarnings("serial")
 public class VentanaReinas extends Frame {
 
-	private transient Reina ultimaReina = null;
+	private transient ReinaDibujable ultimaReina = null;
 
 	public VentanaReinas() {
 		setTitle("Problema de las ocho reinas");
 		setSize(600, 500);
 		for (int i = 1; i <= 8; i++) {
-			ultimaReina = new Reina(i, ultimaReina);
+			ultimaReina = new ReinaDibujable(i, ultimaReina);
 			ultimaReina.buscaSolucion();
 		}
 		addMouseListener(new MouseKeeper());
