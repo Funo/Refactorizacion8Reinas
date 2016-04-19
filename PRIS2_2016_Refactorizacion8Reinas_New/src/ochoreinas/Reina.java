@@ -1,6 +1,5 @@
 package ochoreinas;
 
-import java.awt.*;
 //
 //Eight Reinas puzzle written in Java
 //Written by Tim Budd, January 1996
@@ -46,13 +45,11 @@ public class Reina {
 
 	protected boolean puedeAtacar(int testfila, int testcolumna) {
 		int columnaDiferencia = testcolumna - columna;
-		if ((fila == testfila) || (fila + columnaDiferencia == testfila)
-				|| (fila - columnaDiferencia == testfila))
+		if ((fila == testfila) || (fila + columnaDiferencia == testfila) || (fila - columnaDiferencia == testfila))
 			return true;
 		if (vecina != null)
 			return vecina.puedeAtacar(testfila, testcolumna);
 		return false;
 	}
 
-	
 }

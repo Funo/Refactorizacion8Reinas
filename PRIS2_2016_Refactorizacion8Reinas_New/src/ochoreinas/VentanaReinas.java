@@ -44,9 +44,10 @@ public class VentanaReinas extends Frame {
 	}
 
 	private class CloseQuit extends WindowAdapter {
+		@SuppressWarnings("deprecation")
 		@Override
 		public void windowClosing(WindowEvent e) {
-			System.exit(0);
+			e.getWindow().hide();
 		}
 	}
 
